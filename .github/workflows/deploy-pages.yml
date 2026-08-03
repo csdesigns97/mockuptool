@@ -11,6 +11,9 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  # Needed the first time Pages is enabled for this repo (configure-pages
+  # calls the "create Pages site" API, which requires admin on the repo).
+  administration: write
 
 concurrency:
   group: pages
@@ -28,6 +31,8 @@ jobs:
       - run: npm ci
       - run: npm run build
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
