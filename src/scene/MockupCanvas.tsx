@@ -35,7 +35,6 @@ export function MockupCanvas() {
       camera={{ fov: 35, near: 0.05, far: 100 }}
       dpr={[1, 2]}
     >
-      <color attach="background" args={["#00000000"]} />
       <ambientLight intensity={0.55} />
       <hemisphereLight intensity={0.35} groundColor="#443f38" />
       <directionalLight

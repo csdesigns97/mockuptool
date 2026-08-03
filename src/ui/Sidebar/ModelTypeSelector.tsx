@@ -25,8 +25,10 @@ export function ModelTypeSelector({ variantAvailability }: Props) {
             className={key === modelType ? "segmented-btn active" : "segmented-btn"}
             onClick={() => {
               setModelType(key);
-              const firstVariant = VARIANTS_BY_MODEL[key][0];
-              setVariant(firstVariant.key);
+              const variants = VARIANTS_BY_MODEL[key];
+              const firstAvailable =
+                variants.find((v) => (variantAvailability?.[v.key] ?? true)) ?? variants[0];
+              setVariant(firstAvailable.key);
             }}
           >
             {MODEL_LABELS[key]}
