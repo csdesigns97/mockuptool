@@ -1,8 +1,9 @@
 import type { ModelSource, VariantConfig, VariantKey } from "../types/model.types";
+import { publicUrl } from "../utils/publicUrl";
 
 export const MODEL_SOURCES: Record<"krant" | "magazine", ModelSource> = {
-  krant: { key: "krant", label: "Krant", url: "/models/krant.glb" },
-  magazine: { key: "magazine", label: "Magazine", url: "/models/magazine.glb" },
+  krant: { key: "krant", label: "Krant", url: publicUrl("models/krant.glb") },
+  magazine: { key: "magazine", label: "Magazine", url: publicUrl("models/magazine.glb") },
 };
 
 // Typical newspaper front page / magazine cover trim aspect ratios (width / height).

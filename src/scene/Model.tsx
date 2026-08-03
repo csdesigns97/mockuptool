@@ -10,11 +10,12 @@ import { useCoverTexture } from "./useCoverTexture";
 import { useSpreadCoverTexture } from "./useSpreadCoverTexture";
 import { useCoverFinishMaterial, type PaperControls } from "./usePaperMaterial";
 import { PageEdge } from "./PageEdge";
+import { publicUrl } from "../utils/publicUrl";
 
 // Real paper-type texture atlas extracted from the source .glb materials
 // (Blender wired it as a normal/bump input; we reuse it both as the cover's
 // structure normal map and as the page-edge's paper-type color atlas).
-const PAPER_ATLAS_URL = "/textures/paper-types-atlas.jpg";
+const PAPER_ATLAS_URL = publicUrl("textures/paper-types-atlas.jpg");
 
 function useOptionalTexture(url: string): THREE.Texture | undefined {
   const [texture, setTexture] = useState<THREE.Texture | undefined>(undefined);
