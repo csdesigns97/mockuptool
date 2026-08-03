@@ -11,9 +11,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  # Needed the first time Pages is enabled for this repo (configure-pages
-  # calls the "create Pages site" API, which requires admin on the repo).
-  administration: write
 
 concurrency:
   group: pages
