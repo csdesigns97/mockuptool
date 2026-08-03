@@ -1,0 +1,287 @@
+:root {
+  --text: #3f3d45;
+  --text-h: #08060d;
+  --bg: #f4f3ef;
+  --panel-bg: #ffffff;
+  --border: #e0ded8;
+  --accent: #aa3bff;
+  --accent-text: #ffffff;
+  --input-bg: #fafaf8;
+
+  font: 15px/145% system-ui, "Segoe UI", Roboto, sans-serif;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #d5d3d8;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --panel-bg: #1e1f27;
+    --border: #2e303a;
+    --accent: #c084fc;
+    --accent-text: #16171d;
+    --input-bg: #14151b;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+#root {
+  height: 100svh;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-header {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel-bg);
+}
+
+.app-header h1 {
+  font-size: 18px;
+  margin: 0;
+  color: var(--text-h);
+}
+
+.app-header p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.canvas-area {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  background:
+    repeating-conic-gradient(#dedcd5 0% 25%, #efeee9 0% 50%) 50% / 24px 24px;
+}
+
+.canvas-area canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  width: 320px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  background: var(--panel-bg);
+  border-left: 1px solid var(--border);
+  padding: 8px 16px 32px;
+}
+
+.panel-section {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-section h3 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 10px;
+  color: var(--text-h);
+  opacity: 0.8;
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  margin: 10px 0 4px;
+  opacity: 0.75;
+}
+
+.field-value {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.field-row {
+  display: flex;
+  gap: 8px;
+}
+
+.field-row label {
+  flex: 1;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 13px;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.segmented {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.segmented-btn {
+  flex: 1;
+  padding: 6px 8px;
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.segmented-btn.active {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+.preset-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.upload-row {
+  display: flex;
+  gap: 8px;
+}
+
+.upload-slot {
+  position: relative;
+  flex: 1;
+  min-height: 110px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  background: var(--input-bg);
+}
+
+.upload-placeholder {
+  font-size: 12px;
+  opacity: 0.6;
+  padding: 8px;
+}
+
+.upload-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-clear {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.swatch-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.link-btn {
+  border: none;
+  background: none;
+  color: var(--accent);
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hint {
+  font-size: 12px;
+  opacity: 0.65;
+  margin: 0 0 8px;
+}
+
+.export-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.export-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.error-text {
+  color: #e5484d;
+  font-size: 12px;
+  margin-top: 8px;
+}
